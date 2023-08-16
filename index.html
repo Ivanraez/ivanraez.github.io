@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sky merch overlay</title>
+    </head>
+    <style>
+        #merchvideo {
+            display: none;
+        }
+        #merchvideo2 {
+            display: none;
+        }
+        #merchvideo3 {
+            display: none;
+        }
+    </style>
+    <script type='text/javascript'>
+
+        var st = 0;
+
+        function playvid(videoNumber){
+
+            switch (videoNumber) {
+                case 0:
+                    var vid = document.getElementById("merchvideo");
+                    st = videoNumber;
+                    break;
+
+                case 1:
+                    var vid = document.getElementById("merchvideo2");
+                    st = videoNumber;
+                    break;
+
+                case 2:
+                    var vid = document.getElementById("merchvideo3");
+                    st = videoNumber;
+                    break;
+            }
+
+            vid.style.display = "block"
+            vid.play();
+            vid.addEventListener('ended',videoFinished,false);
+
+            setTimeout(() => {
+                if(videoNumber < 2){
+                    videoNumber++;
+                    playvid(videoNumber);
+                }
+                else{
+                    videoNumber = 0;
+                    playvid(videoNumber);
+                }
+            }, 900000);        //Change time to 15 minutes!!!!
+        }
+
+        function videoFinished(){
+            switch (st) {
+                case 0:
+                    var vid = document.getElementById("merchvideo");
+                    break;
+
+                case 1:
+                    var vid = document.getElementById("merchvideo2");
+                    break;
+
+                case 2:
+                    var vid = document.getElementById("merchvideo3");
+                    break;
+            }
+
+            //console.log("Video finished playing. hidding it.");
+            vid.style.display = "none";
+        }
+
+    </script>
+    <body onload="playvid(0)">
+        <video src="./skymerch_ol_1.webm" width="1000px" id="merchvideo" muted >Sky merch 1</video>
+        <video src="./skymerch_ol_2.webm" width="1000px" id="merchvideo2" muted >Sky merch 2</video>
+        <video src="./skymerch_ol_3.webm" width="1000px" id="merchvideo3" muted >Sky merch 3</video>
+    </body>
+</html>
