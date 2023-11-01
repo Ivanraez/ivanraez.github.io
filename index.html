@@ -14,14 +14,10 @@
         #merchvideo3 {
             display: none;
         }
-        #scarypic {
-            display: none;
-        }
     </style>
     <script type='text/javascript'>
 
         var st = 0;
-        var startScare = true;
 
         function playvid(videoNumber){
 
@@ -56,11 +52,6 @@
                     playvid(videoNumber);
                 };
             }, 900000);
-
-            if(startScare){
-                scare();
-                startScare = false;
-            }
         };
 
         function videoFinished(){
@@ -81,26 +72,8 @@
             //console.log("Video finished playing. hidding it.");
             vid.style.display = "none";
         };
-
-        function scare(){
-            var chance = Math.floor(Math.random() * 5);
-
-            if(chance == 3){
-                var pic = document.getElementById("scarypic");
-                pic.style.display = "block"
-                setTimeout(() => {
-                    pic.style.display = "none";
-                }, 300);
-            };
-
-            setTimeout(() => {
-                scare();
-            }, 600000);
-        };
-
     </script>
     <body onload="playvid(0)">
-        <img src="./scarypic.jpg" id="scarypic">
         <video src="./skymerch_ol_1.webm" width="1000px" id="merchvideo" muted >Sky merch 1</video>
         <video src="./skymerch_ol_2.webm" width="1000px" id="merchvideo2" muted >Sky merch 2</video>
         <video src="./skymerch_ol_3.webm" width="1000px" id="merchvideo3" muted >Sky merch 3</video>
