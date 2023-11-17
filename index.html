@@ -14,6 +14,9 @@
         #merchvideo3 {
             display: none;
         }
+        #merchvideo4 {
+            display: none;
+        }
     </style>
     <script type='text/javascript'>
 
@@ -28,12 +31,17 @@
                     break;
 
                 case 1:
-                    var vid = document.getElementById("merchvideo2");
+                    var vid = document.getElementById("merchvideo4");
                     st = videoNumber;
                     break;
 
                 case 2:
                     var vid = document.getElementById("merchvideo3");
+                    st = videoNumber;
+                    break;
+
+                case 3:
+                    var vid = document.getElementById("merchvideo2");
                     st = videoNumber;
                     break;
             };
@@ -43,7 +51,7 @@
             vid.addEventListener('ended',videoFinished,false);
 
             setTimeout(() => {
-                if(videoNumber < 2){
+                if(videoNumber < 3){
                     videoNumber++;
                     playvid(videoNumber);
                 }
@@ -61,11 +69,15 @@
                     break;
 
                 case 1:
-                    var vid = document.getElementById("merchvideo2");
+                    var vid = document.getElementById("merchvideo4");
                     break;
 
                 case 2:
                     var vid = document.getElementById("merchvideo3");
+                    break;
+
+                case 3:
+                    var vid = document.getElementById("merchvideo2");
                     break;
             };
 
@@ -75,7 +87,8 @@
     </script>
     <body onload="playvid(0)">
         <video src="./skymerch_ol_1.webm" width="1000px" id="merchvideo" muted >Sky merch 1</video>
-        <video src="./skymerch_ol_2.webm" width="1000px" id="merchvideo2" muted >Sky merch 2</video>
+        <video src="./skymerch_ol_4.webm" width="1000px" id="merchvideo4" muted >Sky merch 4</video>
         <video src="./skymerch_ol_3.webm" width="1000px" id="merchvideo3" muted >Sky merch 3</video>
+        <video src="./skymerch_ol_2.webm" width="1000px" id="merchvideo2" muted >Sky merch 2</video>
     </body>
 </html>
