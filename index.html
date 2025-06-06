@@ -38,8 +38,11 @@
                     break;
             };
 
-            vid.style.display = "block"
             vid.play();
+            setTimeout(() => {
+                vid.style.display = "block";
+            }, 100);
+            
             vid.addEventListener('ended',videoFinished,false);
 
             setTimeout(() => {
